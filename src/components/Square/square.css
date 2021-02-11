@@ -1,0 +1,54 @@
+.square {
+  width: 40px;
+  height: 40px;
+  border: 1px solid;
+  text-align: center;
+}
+
+.rows {
+  display: flex;
+}
+
+p {
+  margin: 0;
+}
+
+.me {
+  display: none;
+}
+
+.btn {
+  width: 8rem;
+  height: 3rem;
+  background: indigo;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 50px;
+  transition: all ease-in-out 0.3s;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  background-color: rgb(150, 74, 204);
+  color: #fff;
+}
+
+.btn:active {
+  background-color: rgb(21, 5, 32);
+}
+
+.active {
+  background: red;
+}
+
+img {
+  width: 36px;
+  height: 39px;
+}

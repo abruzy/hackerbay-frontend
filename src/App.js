@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
+import Game from './components/Game/Game';
+
 import './App.css';
 
 function App() {
+  const [start, setStart] = useState(false);
+  const style = ['btn', start ? 'active' : ' '];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button type="button" onClick={() => setStart(!start)} className={style.join(' ')}>{!start ? 'Start Game' : 'Stop'}</button>
+      {start && <Game endGame={() => setStart(false)} />}
     </div>
   );
 }
