@@ -18,6 +18,8 @@ To get a local copy up and running follow these simple steps.
 - You need `git` to get started.
 - Download and install a copy of [ git ](https://git-scm.com/downloads) for your operating system
 
+## [Live version](https://hackerbay-frontend.vercel.app/)
+
 ### Install
 
 - Follow this steps according to get you running
