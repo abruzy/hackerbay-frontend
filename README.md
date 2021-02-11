@@ -43,6 +43,17 @@ yarn install
 ```sh
 yarn start
 ```
+## Usage 
+
+- Enter the number of squares to start playing
+- Press the arrow keys to move the player left, right, up and down 
+
+## Built with
+
+- React - Frontend library 
+- HTML - The markup language
+- CSS - Used to style up the html elements
+
 ## Author
 
 👤 **Abubakar Diallo**
