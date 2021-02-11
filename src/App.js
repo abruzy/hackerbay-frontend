@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import Game from './components/Game/Game';
 
+import './App.css';
+
 function App() {
   const [start, setStart] = useState(false);
   const style = ['btn', start ? 'active' : ' '];

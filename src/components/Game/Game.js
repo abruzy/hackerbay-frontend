@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect, useRef } from 'react';
@@ -20,9 +21,6 @@ const Game = props => {
     if (valX && valY) {
       setX(xP);
       setY(yP);
-      console.log({
-        valX, valY, xP, yP,
-      });
     }
   }, [valX, valY, xP, yP]);
 
@@ -30,8 +28,13 @@ const Game = props => {
     const valueX = prompt('Please enter board Width');
     const valueY = prompt('Please enter board height');
 
-    setValX(parseInt(valueX, 10));
-    setValY(parseInt(valueY, 10));
+    if (valueX > 3 && valueY > 3 && valueX === valueY) {
+      setValX(parseInt(valueX, 10));
+      setValY(parseInt(valueY, 10));
+    } else {
+      alert('Invalid parameter supplied!, please try again');
+      props.endGame();
+    }
   }, []);
 
   const [xCord, setXCord] = useState([]);
@@ -49,7 +52,6 @@ const Game = props => {
     if (valX && valY) {
       const xCord = randomPoints(valX, valX);
       const yCord = randomPoints(valY, valX);
-      console.log({ xCord, yCord });
       setXCord(xCord);
       setYCord(yCord);
     }
@@ -85,7 +87,6 @@ const Game = props => {
           }
           break;
         default:
-          console.log('unknown');
           break;
       }
     }
@@ -112,12 +113,12 @@ const Game = props => {
 
   if (xCord.length > 0) {
     for (let i = 0; i < xCord.length; i += 1) {
-      arr[xCord[i]][yCord[i]] = <div>{[alp[i]]}</div>;
+      arr[xCord[i]][yCord[i]] = <div key={i}>{[alp[i]]}</div>;
     }
 
     for (let i = 0; i < xCord.length; i += 1) {
       if (x === yCord[i] && y === xCord[i]) {
-        alp[i] = <p className="me">Faa</p>;
+        alp[i] = <p className="me" key={i}>Faa</p>;
         tracker.current += 1;
       }
     }
@@ -136,13 +137,14 @@ const Game = props => {
 
   return (
     <div>
+
       {valX && valY
         ? arr.map((item, i) => (
           <Square data={item} key={i} />
         ))
-
         : 'Loading...'}
     </div>
+
   );
 };
 
